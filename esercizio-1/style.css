@@ -1,0 +1,29 @@
+div {
+  border: 1px solid red;
+  padding: 20px;
+}
+div nav {
+  display: flex;
+}
+div h1 {
+  text-align: center;
+  color: green;
+  text-decoration: underline blue;
+}
+div section {
+  display: flex;
+}
+div article {
+  border: green solid 1px;
+}
+div p {
+  color: blue;
+}
+div article:nth-child(2) p {
+  color: red;
+}
+div article:last-child p {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

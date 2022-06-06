@@ -1,0 +1,46 @@
+div {
+  border: 0.0625rem solid red;
+  padding: 1.25rem;
+}
+div nav {
+  display: flex;
+}
+div h1 {
+  text-align: center;
+  color: green;
+  text-decoration: underline blue;
+}
+div section {
+  display: flex;
+  width: 100%;
+}
+div article {
+  width: 100%;
+  color: blue;
+  border: green solid 1px;
+  font-size: 1rem;
+}
+div p {
+  color: blue;
+}
+div article:nth-child(2) p {
+  color: red;
+}
+div article:nth-child(4) p {
+  color: red;
+}
+div :last-child article {
+  margin: 1.25rem;
+  color: green;
+  border: blue solid;
+  font-size: 1.5rem;
+}
+div :last-child article p {
+  text-align: center;
+  color: green;
+  border: none;
+  font-size: 1.5rem;
+  padding: 1.25rem;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,62 @@
+@use 'variabili1';
+@use 'funcionpxtorem';
+
+@mixin article_param ($color, $border, $font-size: 1rem) {
+    color: $color;
+    border: $border;
+    font-size: $font-size;
+}
+
+div {
+
+    border: funcionpxtorem.toRem(1) solid red;
+    padding: funcionpxtorem.toRem(20);
+
+    nav {
+
+        display: flex;
+
+    }
+
+    h1 {
+        text-align: center;
+        color: green;
+        text-decoration: underline blue;
+    }
+
+    section {
+        display: flex;
+        width: 100%;
+    }
+
+    article {
+        width: 100%;
+        @include article_param (blue, green solid 1px, 1rem);
+    }
+
+
+    p {
+        color: variabili1.$parg_blu;
+    }
+
+
+    article:nth-child(2) p {
+        color: variabili1.$parg_red;
+    }
+
+    article:nth-child(4) p {
+        color: variabili1.$parg_red;
+    }
+
+    :last-child article {
+        margin: funcionpxtorem.toRem(20);
+        @include article_param(green, blue solid, funcionpxtorem.toRem(24))
+    }
+
+    :last-child article p {
+        text-align: center;
+        @include article_param(green, none, funcionpxtorem.toRem(24));
+        padding: funcionpxtorem.toRem(20);
+
+    }
+}

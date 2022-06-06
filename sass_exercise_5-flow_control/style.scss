@@ -1,0 +1,133 @@
+@use 'variabili1';
+@use 'funcionpxtorem';
+
+
+
+%testo {
+    text-align: center;
+    color: green;
+    text-decoration: underline blue;
+}
+
+@mixin article_param ($color, $border, $font-size: 1rem) {
+    color: $color;
+    border: $border;
+    font-size: $font-size;
+}
+
+@mixin divfs {
+    width: funcionpxtorem.toRem(45);
+    height: funcionpxtorem.toRem(45);
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+}
+
+div {
+
+    border: funcionpxtorem.toRem(1) solid red;
+    padding: funcionpxtorem.toRem(20);
+
+
+    h1 {
+        @extend %testo;
+    }
+
+    h2 {
+        @extend %testo;
+        padding: 1rem;
+        border: 1px solid red;
+
+    }
+
+    section {
+        display: flex;
+        box-sizing: content-box;
+    }
+
+
+
+    article {
+
+        @include article_param (blue, green solid 1px, 1rem);
+    }
+
+
+    p {
+        color: variabili1.$parg_blu;
+    }
+
+
+
+    article:nth-child(2) p {
+        color: variabili1.$parg_red;
+    }
+
+    article:nth-child(4) p {
+        color: variabili1.$parg_red;
+    }
+
+    :last-child article {
+        margin: funcionpxtorem.toRem(20);
+        @include article_param(green, blue solid, funcionpxtorem.toRem(24))
+    }
+
+    :last-child article p {
+        text-align: center;
+        @include article_param(green, none, funcionpxtorem.toRem(24));
+        padding: funcionpxtorem.toRem(20);
+
+    }
+
+    & {
+        background-color: lightgray;
+    }
+
+    &:hover {
+        background-color: yellow;
+    }
+}
+
+[class^="fs-"] {
+    padding: 0;
+    margin: 10px;
+    @include divfs();
+}
+
+div {
+    $n: 5;
+
+    @for $i from 1 to 20 {
+
+        @if $i ==10 {
+            &:nth-of-type(#{$i}) {
+                background-color: variabili1.$parg_blu;
+                ;
+                color: variabili1.$parg_red;
+                font-weight: bold;
+            }
+        }
+
+        @else {
+            &:nth-of-type(#{$i}) {
+                background-color: darken(white, $n);
+                color: lighten(black, $n);
+            }
+        }
+
+        $n: $n + 5;
+    }
+
+    $values: 1rem, 2rem, 3rem;
+
+    @each $value in $values {
+        .fs-#{$value} {
+            font-size: $value;
+        }
+    }
+}

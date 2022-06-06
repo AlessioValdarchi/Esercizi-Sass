@@ -1,0 +1,44 @@
+$bord_art_color: green solid 1px;
+$parg_blu: blue;
+$parg_red: red;
+
+div {
+
+    border: 1px solid red;
+    padding: 20px;
+
+    nav {
+
+        display: flex;
+
+    }
+
+    h1 {
+        text-align: center;
+        color: green;
+        text-decoration: underline blue;
+    }
+
+    section {
+        display: flex;
+    }
+
+    article {
+        border: $bord_art_color;
+    }
+
+
+    p {
+        color: $parg_blu;
+    }
+
+
+    article:nth-child(2) p {
+        color: $parg_red;
+    }
+
+    article:last-child p {
+        color: $parg_red;
+    }
+
+}
